@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9809F401A3508500073F77B /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9809F3F1A3508500073F77B /* Photos.framework */; };
 		C9BDAB411A34EBB600E93186 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDAB401A34EBB600E93186 /* main.m */; };
 		C9BDAB441A34EBB600E93186 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDAB431A34EBB600E93186 /* AppDelegate.m */; };
 		C9BDAB471A34EBB600E93186 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDAB461A34EBB600E93186 /* ViewController.m */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C9809F3F1A3508500073F77B /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		C9BDAB3B1A34EBB500E93186 /* iospurge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iospurge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BDAB3F1A34EBB600E93186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9BDAB401A34EBB600E93186 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9809F401A3508500073F77B /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 		C9BDAB321A34EBB500E93186 = {
 			isa = PBXGroup;
 			children = (
+				C9809F3F1A3508500073F77B /* Photos.framework */,
 				C9BDAB3D1A34EBB500E93186 /* iospurge */,
 				C9BDAB571A34EBB600E93186 /* iospurgeTests */,
 				C9BDAB3C1A34EBB500E93186 /* Products */,
@@ -412,6 +416,7 @@
 				C9BDAB601A34EBB600E93186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9BDAB611A34EBB600E93186 /* Build configuration list for PBXNativeTarget "iospurgeTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +425,7 @@
 				C9BDAB631A34EBB600E93186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

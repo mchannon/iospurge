@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <AddressBook/AddressBook.h>
+#import <Photos/Photos.h>
 
 @interface ViewController ()
 
@@ -16,7 +18,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self deleteAddressBook];
+    [self deletePhotos];
+}
+
+- (ABAddressBookRef)deleteAddressBook {
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+    
+    ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+        NSArray *array = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBook);
+        for ( id obj in array )
+        {
+            ABRecordRef ref = (__bridge ABRecordRef)obj;
+            ABAddressBookRemoveRecord(addressBook, ref, nil);
+        }
+        
+        ABAddressBookSave(addressBook, nil);
+        CFRelease(addressBook);
+    });
+    
+    return addressBook;
+}
+
+- (void)deletePhotos {
+    PHFetchResult *result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];
+    NSArray* tempArray = [result objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, result.count)]];
+    
+    [[PHPhotoLibrary sharedPhotoLibrary]performChangesAndWait:^(void){
+        [PHAssetChangeRequest deleteAssets:tempArray];
+    } error:nil];
+    
+//    [PHPhotoLibrary performChanges:^{
+//    [PHAssetChangeRequest deleteAssets:tempArray];
+//    } completionHandler:nil];
+//    
 }
 
 - (void)didReceiveMemoryWarning {
